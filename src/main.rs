@@ -2,18 +2,26 @@ use serenity::framework::standard::StandardFramework;
 use serenity::model::id::UserId;
 use serenity::{client::Client, framework::standard::macros::group};
 use std::collections::{hash_map::RandomState, HashSet};
+use std::sync::Mutex;
+use lazy_static::lazy_static;
 
 mod buckets;
 mod handlers;
 mod utils;
 mod plugins;
 mod constants;
+mod stores;
 
 use buckets::*;
 use handlers::*;
 use utils::*;
 #[allow(unused_imports)]
 use plugins::*;
+use stores::sticky_store::StickyStore;
+
+lazy_static!(
+    pub static ref STICKY: Mutex<StickyStore> = Mutex::new(StickyStore::create_empty_store());
+);
 
 #[group]
 #[commands(ping, links, weather)]
@@ -24,7 +32,7 @@ pub struct Helpers;
 pub struct Fun;
 
 #[group]
-#[commands(version)]
+#[commands(version, sticky, clearsticky)]
 pub struct Utilities;
 
 #[group]

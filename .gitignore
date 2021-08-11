@@ -3,3 +3,4 @@
 !/data/dummy_*.ron
 *.sh
 Cargo.lock
+.env
