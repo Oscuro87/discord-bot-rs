@@ -48,9 +48,9 @@ impl EventHandler for DefaultHandler {
     ) {
         crate::plugins::edits_watcher::watch_edits(
             &ctx,
-            old_if_available.clone(),
-            new.clone(),
-            event.clone(),
+            old_if_available,
+            new,
+            event,
         ).await;
     }
 }
