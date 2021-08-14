@@ -18,15 +18,15 @@ pub async fn watch_edits(
 
     if old_msg.is_some() {
         let old: Message = old_msg.unwrap();
-        relay_msg.push_line_safe(format!("{} edited a message:", old.author.name));
-        relay_msg.push_line_safe("Original Message:");
-        relay_msg.push_line_safe(old.content);
+        relay_msg.push_line(format!("{} edited a message:", old.author.name));
+        relay_msg.push_line("Original Message:");
+        relay_msg.push_line(old.content);
     }
 
     if new_msg.is_some() {
         let new: Message = new_msg.unwrap();
-        relay_msg.push_line_safe("New Message:");
-        relay_msg.push_line_safe(new.content);
+        relay_msg.push_line("New Message:");
+        relay_msg.push_line(new.content);
     }
 
     send_or_discord_err(&ctx.clone(), EDITS.into(), ERRORS.into(), relay_msg).await;
