@@ -29,5 +29,5 @@ pub async fn watch_edits(
         relay_msg.push_line(new.content);
     }
 
-    send_or_discord_err(&ctx.clone(), EDITS.into(), ERRORS.into(), relay_msg).await;
+    send_or_discord_err(&ctx.clone(), EDITS.into(), ERRORS.into(), &mut relay_msg).await;
 }
