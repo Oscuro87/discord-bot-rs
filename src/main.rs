@@ -8,10 +8,11 @@ mod handlers;
 mod utils;
 mod plugins;
 mod constants;
+mod datastructs;
 
 use buckets::*;
 use handlers::*;
-use utils::*;
+use datastructs::*;
 #[allow(unused_imports)]
 use plugins::*;
 
@@ -32,7 +33,7 @@ pub struct Admin;
 
 #[tokio::main]
 async fn main() {
-    let infos: BotInfo = read_bot_infos();
+    let infos: bot_info::BotInfo = bot_info::read_bot_infos();
     let framework = StandardFramework::new().configure(|c| {
         let mut owners_hs: HashSet<UserId, RandomState> = HashSet::new();
 

@@ -9,8 +9,9 @@ use serenity::{
     model::channel::Message,
 };
 
-use crate::utils::{Roller, SanitizedMessage};
+use crate::utils::Roller;
 use crate::utils::bot_reply::reply_question;
+use crate::datastructs::sanitized_message::SanitizedMessage;
 
 #[command]
 #[min_args(1)]

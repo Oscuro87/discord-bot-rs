@@ -6,4 +6,7 @@ pub mod channels {
     pub static VIDEOS: u64 = 867783583590645800;
     pub static SCREENS: u64 = 513303312129589271;
     pub static LINKS: u64 = 847034469684346890;
+    // Admin channels
+    pub static EDITS: u64 = 876163865862373386;
+    pub static ERRORS: u64 = 876173856526712922;
 }

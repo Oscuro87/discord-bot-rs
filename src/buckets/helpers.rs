@@ -3,7 +3,7 @@ use std::sync::Arc;
 use serenity::{client::Context, framework::standard::{macros::command, CommandResult}, http::CacheHttp, model::channel::Message, utils::MessageBuilder};
 
 use crate::plugins::weather::{fetch_weather_for_city, kelvin_to_celsius};
-use crate::utils::SanitizedMessage;
+use crate::datastructs::sanitized_message::SanitizedMessage;
 
 #[command]
 #[owners_only]
